@@ -1,0 +1,91 @@
+<!<!DOCTYPE html>
+<html>
+    <head>
+    <title>Finstagram</title>
+    
+  <link rel="stylesheet" href="../../public/stylesheets/normalize.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,700italic,700,300"/>
+  <link rel="stylesheet" href="../../public/stylesheets/lib.css"/>
+  <link rel="stylesheet" href="../../public/stylesheets/app.css" />
+  
+    </head>
+    <body>
+     <header> 
+        <h1> Finstagram </h1>
+     </header>
+     
+        <main role="main"><!-- not understood -->
+         
+             <article class="post">
+             <div class="user-info"> 
+        
+                     <img src= "<%= @post_walrus[:avatar_url] %>" alt= "<%= @post_walrus[:username] %>">
+                 <h2><%= @post_walrus[:username] %></h2>
+                 <h3><%= @post_walrus[:humanized_time_ago] %></h3>
+             </div>
+              <a class="photo" href="#">
+                  <img src= "<%= @post_walrus[:photo_url] %>" alt= "<%= @post_walrus[:username] %>">
+                </a>
+                
+                <!-- id gets # in css, class gets period -->
+             
+            <div class="actions">
+                <%= @post_walrus[:like_count] %> likes
+            <span class="comment-count"><%= @post_walrus[:comment_count] %> comments</span>
+            </div>
+            <ul class="comments">
+                <li>
+                    <p>
+                        <%= @post_walrus[:comments][0][:username] %>: <%= @post_walrus[:comments][0][:text] %>
+                    </p>
+                </li>
+            </ul>
+            
+             </article>
+             
+      <article class="post">
+               
+<div class="user-info">
+      <img src= "<%= @post_whale[:avatar_url] %>" alt="<%= @post_whale[:username] %>">
+      <h2><%= @post_whale[:username] %></h2>
+      <h3><%= @post_whale[:humanized_time_ago] %></h3>
+    </div>
+    <a class="photo" href="#">
+      <img src="<%= @post_whale[:photo_url] %>" alt="<%= @post_whale[:username] %>">
+    </a>
+    <div class="actions">
+      <%= @post_whale[:like_count] %> likes
+      <span class="comment-count"> <%= @post_whale[:comment_count] %> comments</span>
+    </div>
+    <ul class="comments">
+      <li>
+        <p>
+          <%= @post_whale[:comments][0][:username] %>: <%= @post_whale[:comments][0][:text] %>
+        </p>
+      </li>
+    </ul>
+    </article>
+  <article class="post">
+    <div class="user-info">
+      <img src="<%= @post_marlin[:avatar_url] %>" alt="<%= @post_marlin[:username] %>">
+      <h2><%= @post_marlin[:username] %></h2>
+      <h3><%= @post_marlin[:humanized_time_ago] %></h3>
+    </div>
+    <a class="photo" href="#">
+      <img src="<%= @post_marlin[:photo_url] %>" alt="<%= @post_marlin[:username] %>">
+    </a>
+    <div class="actions">
+      <%= @post_marlin[:like_count] %> likes
+      <span class="comment-count"> <%= @post_marlin[:comment_count] %> comments</span>
+    </div>
+    <ul class="comments">
+      <li>
+        <p>
+          <%= @post_marlin[:comments][0][:username] %>: <%= @post_marlin[:comments][0][:text] %> 
+          </p>
+      </li>
+    </ul>
+  </article>
+</main>
+    </body>
+</html>
