@@ -49,11 +49,10 @@ get '/' do
     }
     
     
-    [@post_walrus, @post_whale, @post_marlin].to_s
+@posts =  [@post_walrus, @post_whale, @post_marlin]
     
-erb :index
+erb (:index)
 end
-
 
 
 
