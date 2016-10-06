@@ -6,7 +6,7 @@ end
 
 get '/' do 
     @posts = Post.order(created_at: :desc)
-    @current_user = User.find_by(id: session[:user_id])
+    #@current_user = User.find_by(id: session[:user_id])
     erb (:index)
 end
 
@@ -24,7 +24,7 @@ post '/signup' do
 @user = User.new({ email: email, username: username, password: password }) 
 
 if @user.save 
-    "User #{username} saved!" 
+    redirect to('/login')
 else
     erb(:signup)
     
