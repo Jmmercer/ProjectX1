@@ -1,13 +1,13 @@
 helpers do 
     def current_user
-        User.find_by(id: session[user_id])
+        User.find_by(id: session[:user_id])
     end
 end 
 
 get '/' do 
     @posts = Post.order(created_at: :desc)
     #@current_user = User.find_by(id: session[:user_id])
-    erb (:index)
+    erb(:index)
 end
 
 get '/signup' do
@@ -41,7 +41,8 @@ post '/login' do
    user = User.find_by(username: username)
 if user && user.Password == password
     session[:user_id] = user_id
-       "Success! User with session id #{session(:user_id)} is logged in! "
+    redirect to('/')
+      # "Success! User with session id #{session(:user_id)} is logged in! "
 else 
        @error_message = "Login Failed."
        erb(:login)
@@ -50,9 +51,28 @@ end
 
 get '/logout' do 
     session[:user_id] = nil
-    "logout successful."
+    redirect to('/')
+    #"logout successful."
 end
 
+get '/posts/new' do 
+    erb(:"posts/new")
+end
+
+post '/posts' do 
+    photo_url = params[:photo_url]
+    @post = Post.new({ photo_url: photo_url, user_id: current_user. id })
+    if @post.save
+        redirect(to('/'))
+    else
+        erb(:"posts/new")
+    end
+end
+
+get '/posts/:id' do
+    @post =Post.find(params[:id])
+    erb(:"posts/show")
+end
 
 
 #if time_ago_in_minutes > 60
