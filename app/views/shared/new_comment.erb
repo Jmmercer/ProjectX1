@@ -1,0 +1,8 @@
+<form class="new__comment" action="/comments" method="POST">
+    <div class="form-group">
+        <input type="text" id="text" name="text" placeholder="Comment">
+    </div>
+    <input type="hidden" id="post_id" name="post_id" value="<%= post.id %>">
+    <div class="button" type="submit">Submit</button>
+    </div>
+</form>

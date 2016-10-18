@@ -6,7 +6,7 @@
 
 <main role="main"><!-- not understood -->
     <% @posts.each do |post| %>
-        <%= erb :'shared/post', locals: { post: post } %>
+        <%= erb :'shared/post', locals: { post: post, allow_new_comment: false } %>
     <% end %>
              
 </main>
